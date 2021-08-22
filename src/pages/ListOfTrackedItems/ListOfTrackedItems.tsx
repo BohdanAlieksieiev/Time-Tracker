@@ -4,6 +4,10 @@ import { useHistory } from "react-router-dom";
 import { ITask } from "../../types/types";
 import EmptyList from "../../components/UI/EmptyList";
 
+import ClockImg from '../../images/clock.svg';
+import HourglassImg from '../../images/hourglass.svg';
+import UserImg from '../../images/user.svg'
+
 const ListOfTrackedItems: React.FC = () => {
     const [tasks, setTasks] = useState<ITask[]>([]);
     const history = useHistory();
@@ -28,19 +32,28 @@ const ListOfTrackedItems: React.FC = () => {
             {
                 tasks.map( (task, index) => {
                     return <div className="task-block" key={task.name} onClick={() => { history.push('/list/' + index) }}>
-                        <div className="centered  ">
-                            <p className="three-dots size-name-task"><b>{task.name}</b></p>
+                        <div className="centered margin-task-row">
+                            <div className="three-dots size-name-task"><b>{task.name}</b></div>
                         </div>
-                        <div className="centered">
-                            <p><b>Hour:</b> {task.hour}</p>
+                        <div className="centered margin-task-row">
+                            <div><b>Hour:</b> {task.hour}</div>
+                            <div className="task-image-block">
+                                <img src={ClockImg} alt="" />
+                            </div>
                         </div>
-                        <div className="centered">
-                            <p><b>Minute</b>: {task.minute}</p>
+                        <div className="centered margin-task-row">
+                            <div><b>Minute</b>: {task.minute}</div>
+                            <div className="task-image-block">
+                                <img src={HourglassImg} alt="" />
+                            </div>
                         </div>
-                        <div className="centered">
-                            <p><b>{task.user.name}</b></p>
+                        <div className="centered margin-task-row">
+                            <div><b>{task.user.name}</b></div>
+                            <div className="task-image-block">
+                                <img src={UserImg} alt="" />
+                            </div>
                         </div>
-                        <div className="centered">
+                        <div className="centered margin-task-row">
                             <button 
                                 className="btn-deleted"
                                 onClick={(event) => { 

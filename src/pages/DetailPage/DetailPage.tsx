@@ -3,6 +3,12 @@ import { useParams, useHistory } from "react-router-dom";
 import { ITask } from "../../types/types";
 import "./DetailPage.scss";
 
+import ClockImg from '../../images/clock.svg';
+import HourglassImg from '../../images/hourglass.svg';
+import UserImg from '../../images/user.svg';
+import EmailImg from '../../images/email.svg'
+import GlobeImg from '../../images/globe.svg'
+
 const DetailsPage: React.FC = () => {
     const { id } = useParams() as { id: string };
     const [task, setTask] = useState<ITask>();
@@ -28,37 +34,70 @@ const DetailsPage: React.FC = () => {
         <section className="details-container">
             <div className="details-form">
                 <div className="centered details-item">
+                    <div className="line-doter"><div/></div>
                     <b>Task</b>
+                    <div className="line-doter"><div/></div>
                 </div>
                 <div className="details-item three-dots detaile-task-name">
                     <b>Name: </b>
                     {task?.name}
                 </div>
                 <div className="details-item">
-                    <b>Hour: </b>
-                    {task?.hour}
+                    <div>
+                        <b>Hour: </b>
+                        {task?.hour}
+                    </div>
+                    <div className="task-image-block">
+                                <img src={ClockImg} alt="" />
+                    </div>
                 </div>
                 <div className="details-item">
-                    <b>Minute: </b>
-                    {task?.minute}
+                    <div>
+                        <b>Minute: </b>
+                        {task?.minute}
+                    </div>
+                    <div className="task-image-block">
+                                <img src={HourglassImg} alt="" />
+                    </div>
                 </div>
                 <div className="centered details-item">
+                    <div className="line-doter"><div/></div>
                     <b>User</b>
+                    <div className="line-doter"><div/></div>
                 </div>
                 <div className="details-item">
-                    <b>Name:</b>
-                    {task?.user?.name}
+                    <div>
+                        <b>Name: </b>
+                        {task?.user?.name}
+                    </div>
+                    <div className="task-image-block">
+                        <img src={UserImg} alt="" />
+                    </div>
                 </div>
                 <div className="details-item">
-                    <b>Email:</b>
-                    {task?.user?.email}
+                    <div>
+                        <b>Email: </b>
+                        {task?.user?.email}
+                    </div>
+                    <div className="task-image-block">
+                        <img src={EmailImg} alt="" />
+                    </div>
                 </div>
                 <div className="details-item">
-                    <b>Website:</b>
-                    {task?.user?.website}
+                    <div>
+                        <b>Website: </b>
+                        {task?.user?.website}
+                    </div>
+                    <div className="task-image-block">
+                        <img className="image-globe" src={GlobeImg} alt="" />
+                    </div>
                 </div>
                 <div className="details-item">
-                    <b>Description:</b>
+                    <div>
+                        <b>Description: </b>
+                    </div>
+                </div>
+                <div className="details-item">
                     <div className="description-block">{task?.description}</div>
                 </div>
                 <div className="centered ">

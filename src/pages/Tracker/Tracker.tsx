@@ -38,7 +38,6 @@ const Tracker: React.FC = () => {
 
     const addTask = async () => {
         if(taskName && selectedUser && !tasks.find(( task ) => task.name === taskName)){
-            console.log('ADD TASK')
             const newTasks: ITask[] = [
                 ...tasks,
                 {

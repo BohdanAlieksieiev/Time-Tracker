@@ -9,18 +9,22 @@
 
 .details-form{
     background-color: white;
-    border: 1px solid gray;
+    // border: 1px solid gray;
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.384);
     border-radius: 5px;
     padding: 20px;
 }
 
 .details-item{
+    display: flex;
+    align-content: center;
+    justify-content: center;
     margin: 15px 0;
     font-size: 20px;
 }
 
 .details-form:hover{
-    box-shadow: 0px 0px 2px black;
+    box-shadow: 0px 0px 3px black;
 }
 
 .description-block{
@@ -32,4 +36,23 @@
 
 .detaile-task-name{
     max-width: 300px;
+}
+
+.line-doter{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.line-doter > div {
+    height: 1px;
+    width: 100%;
+    border-top: 1px dotted black;
+}
+
+.image-globe{
+    width: 20px;
+    height: 20px;
 }
