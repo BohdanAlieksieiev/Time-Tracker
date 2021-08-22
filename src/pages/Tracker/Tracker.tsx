@@ -12,7 +12,7 @@ const Tracker: React.FC = () => {
     const [users, setUsers] = useState<IUser[]>([]);
     const [tasks, setTasks] = useState<ITask[]>([]); 
     const [taskName, setTaskName] = useState<string>('');
-    const [taskHour, setTaskHour] = useState<number>(0);
+    const [taskHour, setTaskHour] = useState<number>(1);
     const [taskMinute, setTaskMinute] = useState<number>(0);
     const [taskDescription, setTaskDescription] = useState<string>('');
     const [selectedUser, setSelectedUser] = useState<IUser | null>();
@@ -36,8 +36,9 @@ const Tracker: React.FC = () => {
         setSelectedUser((users.find((u: IUser) => u.id === +user.target.value) || null));
     }
 
-    const addTask = () => {
+    const addTask = async () => {
         if(taskName && selectedUser && !tasks.find(( task ) => task.name === taskName)){
+            console.log('ADD TASK')
             const newTasks: ITask[] = [
                 ...tasks,
                 {
@@ -56,8 +57,15 @@ const Tracker: React.FC = () => {
 
     const checkMinute = () => {
         if(taskMinute >= 60){
-            setTaskMinute(59)
-            console.log('os')
+            setTaskMinute(59);
+        }
+    }
+
+    const checkHour = () => {
+        if(taskHour >= 100) {
+            setTaskHour(100);
+        }else if(taskHour <= 0) {
+            setTaskHour(1);
         }
     }
 
@@ -68,19 +76,29 @@ const Tracker: React.FC = () => {
             ) : (
                 <>
                     <div className="tracker-form">
+                        <div className="tracker-item">
+                            <b>Task name:</b>
+                        </div>
                         <input 
                             className="tracker-form-input"
                             type="text" 
                             placeholder="Task name"
                             onChange={(e) => { setTaskName(e.target.value) }}
                         />
+                        <div className="tracker-item">
+                            <b>Hour:</b>
+                        </div>
                         <input 
                             className="tracker-form-input"
                             type="number" 
-                            min="0" 
-                            placeholder="Hour"
+                            min="1" 
+                            value={taskHour}
+                            onBlur={checkHour}
                             onChange={(e) => { setTaskHour(+e.target.value) }}
                         />
+                        <div className="tracker-item">
+                            <b>Minute:</b>
+                        </div>
                         <input 
                             className="tracker-form-input"
                             type="number" 
@@ -91,19 +109,25 @@ const Tracker: React.FC = () => {
                             onBlur={checkMinute}
                             onChange={(e) => { setTaskMinute(+e.target.value) }}
                         />
+                        <div className="tracker-item">
+                            <b>Description:</b>
+                        </div>
                         <textarea
                             className="tracker-form-input"
                             onChange={(e) => { setTaskDescription(e.target.value) }}
                             rows={10}
                             placeholder="A note about the project the user worked on"
                         ></textarea>
+                        <div className="tracker-item">
+                            <b>User:</b>
+                        </div>
                         <select
                             className="tracker-form-input"
                             onChange={e => selectUser(e)}
                         >
                             {users.map((user) => (<option value={user.id} key={user.id}>{user.name}</option>))}
                         </select>
-                        <button className="tracker-form-input" onClick={addTask}>
+                        <button className="tracker-form-input btn-add-task" onClick={addTask}>
                             Add task
                         </button>
                     </div>

@@ -22,5 +22,22 @@
 .tracker-form-input{
     padding: 5px;
     margin: 10px;
-    font-size: 24px;
+    font-size: 20px;
+}
+
+.tracker-item{
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.btn-add-task{
+    border-radius: 5px;
+    background-color: rgb(14, 199, 85);
+    color: white;
+    border: none;
+    box-shadow: 0 0 3px black;
+}
+
+.btn-add-task:hover{
+    box-shadow: 0 0 6px black;
 }

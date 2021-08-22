@@ -30,7 +30,7 @@ const DetailsPage: React.FC = () => {
                 <div className="centered details-item">
                     <b>Task</b>
                 </div>
-                <div className="details-item">
+                <div className="details-item three-dots detaile-task-name">
                     <b>Name: </b>
                     {task?.name}
                 </div>

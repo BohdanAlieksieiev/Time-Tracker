@@ -40,3 +40,14 @@
 .btn-deleted:hover{
     box-shadow: 0 0 3px red;
 }
+
+
+.three-dots{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.size-name-task{
+    padding: 0 50px;
+    height: 20px;
+}

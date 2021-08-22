@@ -25,6 +25,11 @@
 
 .description-block{
     width: 200px;
+    max-height: 135px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.detaile-task-name{
+    max-width: 300px;
 }
