@@ -1,0 +1,42 @@
+.task-block{
+    background-color: white;
+    border: 1px solid gray;
+    cursor: pointer;
+    margin: 30px;
+    width: 250px;
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.task-block:hover{
+    box-shadow: 0px 0px 2px black;
+}
+
+.list-tasks-block{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.btn-deleted{
+    color: white;
+    background-color: #D11A2A;
+    border: none;
+    padding:  5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-deleted:hover{
+    box-shadow: 0 0 3px red;
+}

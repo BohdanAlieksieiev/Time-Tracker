@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './Main.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+import Header from './components/layout/Header';
+import Tracker from './pages/Tracker/Tracker';
+import ListOfTrackedItems from './pages/ListOfTrackedItems/ListOfTrackedItems'
+import DetailPage from './pages/DetailPage/DetailPage';
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main-body">
+      <Router>
+        <Header/>  
+        <Switch>
+          <Route path="/" exact>
+            <Tracker />
+          </Route>
+          <Route path="/list" exact>
+            <ListOfTrackedItems />
+          </Route>
+          <Route path="/list/:id">
+            <DetailPage />
+          </Route>
+        </Switch>
+      </Router>
+    </main>
   );
 }
 
